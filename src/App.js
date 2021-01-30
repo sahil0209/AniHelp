@@ -4,6 +4,8 @@ import Pets from './Pets/Pets'
 import Index from './Index/Index';
 import Navbar from './Navbar/Navbar'
 import {Route} from 'react-router-dom';
+import Graphapi from './Graphapi/Graphapi';
+
 class App extends Component {
   state={
     pets: [
@@ -33,6 +35,7 @@ class App extends Component {
         <Navbar/>
         <Route exact path='/' component={pets}></Route>
         <Route exact path='/home' component=  {Index}></Route>
+        <Route exact path='/graphapi' component=  {Graphapi}></Route>
       </div>
     );
   }

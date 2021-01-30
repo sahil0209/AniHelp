@@ -2,18 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
 import {BrowserRouter} from 'react-router-dom';
-import serviceAccount from '../fireserver.json'
-// import {Firestore} from '@google-cloud/firestore';
-// import admin from 'firebase-admin';
+import { ApolloClient, InMemoryCache,ApolloProvider } from '@apollo/client';
 
+const client = new ApolloClient({
+  uri: 'https://anihelp-server.herokuapp.com/graphql',
+  cache: new InMemoryCache()
+});
 
 ReactDOM.render (
+        <ApolloProvider client={client}>
     <BrowserRouter>
             <App />
     </BrowserRouter>
+    </ApolloProvider>
             ,document.getElementById('root'));
-registerServiceWorker();
-
-export const db=admin.firestore();

@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const pets = (props)=>{
     // const styleCard = {
     //     'width': '18rem'
