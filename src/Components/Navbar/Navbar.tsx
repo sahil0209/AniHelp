@@ -1,15 +1,15 @@
 import React from "react";
-import { ICurrentUser } from "../App";
+import { UserCtx } from "../App";
 import "./Navbar.css";
 
 export interface INavbar {
-	currentUser: ICurrentUser | null;
 	signIn(): void;
 	signOut(): void;
 }
 
-export const Navbar: React.FC<INavbar> = ({ currentUser, signIn, signOut }) => {
+export const Navbar: React.FC<INavbar> = ({ signIn, signOut }) => {
 	const [isActive, setIsActive] = React.useState(false);
+	const currentUser = React.useContext(UserCtx);
 
 	React.useEffect(() => {
 		window.addEventListener("scroll", () => setIsActive(window.scrollY > 0));
