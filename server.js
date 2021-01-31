@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-const PORT = process.env.PORT ?? 3000;
+const PORT = process.env.PORT === undefined ? 3000 : process.env.PORT;
 app.use(express.static("build"));
 app.listen(PORT, () => {
 	console.log(`Served on PORT = ${PORT}`);
