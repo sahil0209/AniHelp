@@ -1,14 +1,18 @@
 import React from "react";
+import { ICurrentUser } from "../App";
 import "./Navbar.css";
 
-export const Navbar = () => {
+export interface INavbar {
+	currentUser: ICurrentUser | null;
+	signIn(): void;
+	signOut(): void;
+}
+
+export const Navbar: React.FC<INavbar> = ({ currentUser, signIn, signOut }) => {
 	const [isActive, setIsActive] = React.useState(false);
 
 	React.useEffect(() => {
-		window.addEventListener("scroll", () => {
-			setIsActive(window.scrollY > 0);
-			console.log(window.scrollY);
-		});
+		window.addEventListener("scroll", () => setIsActive(window.scrollY > 0));
 	}, []);
 
 	return (
@@ -17,35 +21,35 @@ export const Navbar = () => {
 				<div className='container'>
 					<nav className='nav'>
 						<i className='fa fa-paw'></i>
-						<a href='#' className='logo'>
-							AniHelp
-						</a>
+						<span className='logo'>AniHelp</span>
 						<ul className='nav-list'>
 							<li>
-								<a href='#' className='nav-link'>
-									Info
-								</a>
+								<span className='nav-link'>Info</span>
 							</li>
 							<li>
-								<a href='#' className='nav-link'>
-									Community
-								</a>
+								<span className='nav-link'>Community</span>
 							</li>
 							<li>
-								<a href='#' className='nav-link'>
-									Donate
-								</a>
+								<span className='nav-link'>Donate</span>
 							</li>
-							<li>
-								<a href='#' className='nav-link'>
-									Log In
-								</a>
-							</li>
-							<li>
-								<a href='#' className='nav-link'>
-									Sign Up
-								</a>
-							</li>
+							{currentUser !== null ? (
+								<React.Fragment>
+									<li>
+										<span onClick={signOut} className='nav-link'>
+											Sign Out
+										</span>
+									</li>
+									<li>
+										<span className='nav-link'>{currentUser.name}</span>
+									</li>
+								</React.Fragment>
+							) : (
+								<li>
+									<span onClick={signIn} className='nav-link'>
+										Sign In
+									</span>
+								</li>
+							)}
 						</ul>
 					</nav>
 				</div>
