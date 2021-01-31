@@ -18,11 +18,9 @@ export interface IPetifyParams {
 
 export const Petify: React.FC<RouteComponentProps<IPetifyParams>> = ({ match }) => {
 	const [pets, setPets] = React.useState<IDBPet[]>([]);
-	console.log(pets);
 
 	React.useEffect(() => {
 		const petType = match.params.petType.toUpperCase();
-		console.log(petType);
 		fireDb
 			.collection("pets")
 			.where("type", "==", petType)
