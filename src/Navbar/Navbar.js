@@ -18,13 +18,10 @@ const navbar = ()=>{
                 <a href="index.html" className="logo">AniHelp</a>
                 <ul className="nav-list">
                     <li>
-                        <a href="index.html" className="nav-link">Info</a>
+                        <a href="/community" className="nav-link">Community</a>
                     </li>
                     <li>
-                        <a href="" className="nav-link">Community</a>
-                    </li>
-                    <li>
-                        <a href="" className="nav-link">Donate</a>
+                        <a href="/" className="nav-link">Donate</a>
                     </li>
                     <li>
                         <a href="" className="nav-link">Log In</a>

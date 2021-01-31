@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import Pets from './Pets/Pets'
-import Index from './Index/Index';
 import Navbar from './Navbar/Navbar'
 import {Route} from 'react-router-dom';
 import Graphapi from './Graphapi/Graphapi';
-
+import Petify from './Petify/Petify';
+import Community from './Community/Community';
+import Donate from './Donate/Donate';
 class App extends Component {
   state={
     pets: [
@@ -14,6 +15,11 @@ class App extends Component {
       {name: 'COWS', link: 'https://th.bing.com/th/id/OIP.HrAiTxQv-FqxEkB0k3tuAgHaE6?w=268&h=180&c=7&o=5&dpr=1.25&pid=1.7'},
       {name: 'GOATS', link: 'https://th.bing.com/th/id/R089ca11a590afa8ece6604a2b0fb714f?rik=m6FBQtOuW78qsQ&riu=http%3a%2f%2f2.bp.blogspot.com%2f-XK4ISxWQo9A%2fT_kep1D5M_I%2fAAAAAAAAAWA%2fvqYLFj1V1sc%2fs1600%2fDSC04562.JPG&ehk=S3Z1BxwDqkdsOtCh681elTSldwrJSg5WQL10xgN2kuM%3d&risl=&pid=ImgRaw'},
       {name: 'BIRDS', link: 'https://www.thehindu.com/migration_catalog/article12270303.ece/ALTERNATES/LANDSCAPE_615/12_YT_SPARROW'}
+    ],
+    particularPet: [
+      {name: 'Whisker', type: 'DOG',age: 7,link:'https://images.unsplash.com/photo-1568572933382-74d440642117?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80'},
+      {name: 'Buzo', type: 'DOG',age: 12,link:'https://images.unsplash.com/photo-1518378188025-22bd89516ee2?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OHx8ZG9nc3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'},
+      {name: 'Purry', type: 'DOG',age: 5,link:'https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTZ8fGRvZ3N8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'},
     ]
   }
 
@@ -30,12 +36,44 @@ class App extends Component {
         </div>
         </div>
     );
+
+    let xpet = ()=>(
+      <div>
+        <div className="container">
+          <div className="row row-cols-3 mt-5">
+            {
+              this.state.particularPet.map((i)=>{
+                return <Petify 
+                  name = {i.name}
+                  age = {i.age}
+                  link = {i.link}
+                />
+              })
+            }
+          </div>
+        </div>
+      </div>
+    );
+
+    let comPost = ()=>(
+      <div>
+        <div className="Container">
+          <div className="row mt-3">
+            <Community 
+
+            />
+          </div>
+        </div>
+      </div>
+    );
     return (
       <div className="App">
         <Navbar/>
         <Route exact path='/' component={pets}></Route>
-        <Route exact path='/home' component=  {Index}></Route>
         <Route exact path='/graphapi' component=  {Graphapi}></Route>
+        <Route exact path='/petify' component=  {xpet}></Route>
+        <Route exact path='/community' component=  {comPost}></Route>
+        <Route exact path='/donate' component=  {Donate}></Route>
       </div>
     );
   }

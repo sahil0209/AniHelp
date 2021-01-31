@@ -35,10 +35,9 @@ header{
     justify-content: space-between;
     border-bottom: 2px solid rgba(255,255,255,.05);
     transition: height .5s ease;
-    color: black !important;
 }
 .fa{
-    color: aqua;
+    color: black;
     font-size: 28px;
 }
 .nav{

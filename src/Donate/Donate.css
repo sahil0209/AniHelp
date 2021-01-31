@@ -1,0 +1,86 @@
+.main{
+    width: 30%;
+    margin: auto;
+    margin-top: 5%;
+    padding: 20px;
+    font-family:sans-serif;
+    font-size: 20px;
+    box-shadow: 0 0 7px black;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+.petImage{
+    width: 60%;
+    margin: auto;
+}
+hr{
+    width: 100%;
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+.petImage img{
+    width: 80%;
+    size: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 7px black;
+
+}
+table{
+    width: 100%;
+    text-align: left;
+}
+.pet-info{
+    padding: 10px;
+    text-align: center;
+}
+.payment-input{
+    padding: 10px;
+    text-align: center;
+}
+.amount{
+    padding: 10px;
+}
+.amt{
+    width: 80%;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 1px solid;
+    text-align: center;
+    margin: auto;
+    background-color: white;
+}
+select{
+    width: 80%;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.amt{
+    width: 80%;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 1px solid;
+    margin: auto;
+    background-color: white;
+    height: 28px;
+
+}
+button{
+    font-size: 20px;
+    background-color: white;
+    border: 1px solid;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 4px;
+}
+button:hover{
+    background-color: black;
+    color: white;
+    transition: 0.3s;
+}
+
+span{
+    font-weight:"lighter";
+}
